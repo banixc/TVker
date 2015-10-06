@@ -7,16 +7,6 @@
  */
 
 include_once ('config/allconfig.php');
-include_once ('function.php');
-
-$conn=mysql_connect($BASIC['mysql_host'], $BASIC['mysql_user'], $BASIC['mysql_pass']);
-
-if (!$conn) {
-    die('连接数据库失败: ' . mysql_error());
-}
-echo "mysql 连接成功！";
 
 
-
-mysql_close($conn);
 ?>

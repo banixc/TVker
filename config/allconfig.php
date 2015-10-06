@@ -7,8 +7,6 @@
  */
 
 $BASIC=array(
-    'SITENAME' => 'Tvker',
-    'BASEURL' => 'localhost',
     'mysql_host' => 'ali.pal6exe.cn',
     'mysql_user' => 'admin',
     'mysql_pass' => 'admin',
