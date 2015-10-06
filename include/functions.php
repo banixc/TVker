@@ -6,6 +6,8 @@
  * Time: 18:17
  */
 
+include_once ("../config/allconfig.php");
+
 function dbconn() {
     $conn=mysql_connect($BASIC['mysql_host'], $BASIC['mysql_user'], $BASIC['mysql_pass']);
 
