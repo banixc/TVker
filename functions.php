@@ -35,8 +35,46 @@ function dbconn() {
 
 }
 
-function adduser($username,$password) {
-    return "创建用户成功";
+/**
+ * @return int
+ */
+function getnextuserid()
+{
+
+    $query = "SELECT * FROM users ORDER BY userid";
+
+    $result = mysql_query($query);
+
+    $rownum = mysql_num_rows($result);
+    echo $rownum;
+
+    //定位到最后一行
+    mysql_data_seek($result, $rownum);
+    //取出数据
+    $row = mysql_fetch_row($result);
+
+    //echo $row['userid'];
+    if ($row['userid']) {
+    return $row['userid']+1;
+    }
+    else
+        return 1;
+
+}
+
+function adduser($username,$password,$email,$studentid) {
+
+    $userid = getnextuserid();
+    //echo "查询出的后一个用户id: " .$userid;
+
+    $query = "INSERT INTO users(userid, username, userpassword, email, studentid) VALUE($userid, '$username', $password,'$email',$studentid)";
+
+    if($result = mysql_query($query)) {
+        return true;
+    }
+    else
+         die("Error in query: $query. ".mysql_error());
+
 }
 
 
