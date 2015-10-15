@@ -38,34 +38,35 @@ function dbconn() {
 /**
  * @return int
  */
+//用于返回最后一个ID号
 function getnextuserid()
 {
 
-    $query = "SELECT * FROM users ORDER BY userid";
+    $query = "SELECT * FROM users ORDER BY userid DESC";
 
     $result = mysql_query($query);
 
     $rownum = mysql_num_rows($result);
-    echo $rownum;
+    //echo $rownum;
 
-    //定位到最后一行
-    mysql_data_seek($result, $rownum);
-    //取出数据
-    $row = mysql_fetch_row($result);
 
-    //echo $row['userid'];
-    if ($row['userid']) {
-    return $row['userid']+1;
-    }
-    else
-        return 1;
+  /*  for($i=0;$i<$rownum;$i++)
+    {
+        $row=mysql_fetch_assoc($result);
+        echo "ID:".$row['userid']."<br />";
+    }*/
+
+    $row = mysql_fetch_assoc($result);
+
+
+    return $row['userid'];
+
 
 }
 
 function adduser($username,$password,$email,$studentid) {
 
-    $userid = getnextuserid();
-    //echo "查询出的后一个用户id: " .$userid;
+    $userid = getnextuserid()+1;
 
     $query = "INSERT INTO users(userid, username, userpassword, email, studentid) VALUE($userid, '$username', $password,'$email',$studentid)";
 
