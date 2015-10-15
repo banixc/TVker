@@ -46,7 +46,7 @@ function getnextuserid()
 
     $result = mysql_query($query);
 
-    $rownum = mysql_num_rows($result);
+    //$rownum = mysql_num_rows($result);
     //echo $rownum;
 
 
@@ -76,6 +76,35 @@ function adduser($username,$password,$email,$studentid) {
     else
          die("Error in query: $query. ".mysql_error());
 
+}
+
+function getuser($userid) {
+
+
+    $query = "SELECT * FROM users WHERE userid = '$userid'";
+    $result = mysql_query($query);
+
+
+
+    if(!$result) {
+        return false;
+    }
+    else {
+
+        $row = mysql_fetch_array($result);
+
+       /* foreach($row as $key=>$value)
+            echo $key."=>".$value;
+*/
+        $user=array(
+            'userid' => $row['userid'],
+            'username' => $row['username'],
+            'email' => $row['email'],
+            'studentid' => $row[ 'studentid']
+        );
+        return $user;
+
+    }
 }
 
 
