@@ -14,9 +14,6 @@ $mysql_user = "admin";
 $mysql_pass = "admin";
 $mysql_db = "tvker";
 
-global $mytext;
-$mytext = "บวบว";
-
 function dbconn() {
     $host=$GLOBALS['mysql_host'];
     $user=$GLOBALS['mysql_user'];
@@ -58,9 +55,7 @@ function getnextuserid()
 
     $row = mysql_fetch_assoc($result);
 
-
     return $row['userid'];
-
 
 }
 
