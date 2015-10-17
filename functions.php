@@ -9,11 +9,14 @@
 
 global $mysql_host,$mysql_user,$mysql_pass,$mysql_db;
 
-$mysql_host = "ali.pal6exe.cn";
+$mysql_host = "jp.pal6exe.cn";
 $mysql_user = "admin";
 $mysql_pass = "admin";
 $mysql_db = "tvker";
 
+/**
+ * @return mysqli
+ */
 function dbconn() {
     $host=$GLOBALS['mysql_host'];
     $user=$GLOBALS['mysql_user'];
@@ -23,10 +26,10 @@ function dbconn() {
     $conn=mysql_connect($host, $user, $pass);
 
     if (!$conn) {
-        die('Á¬½ÓÊı¾İ¿âÊ§°Ü: ' . mysql_error());
+        die('è¿æ¥æ•°æ®åº“å¤±è´¥: ' . mysql_error());
     }
 
-    mysql_select_db($db) or die("ÎŞ·¨Ñ¡ÔñÊı¾İ¿â!");
+    mysql_select_db($db) or die("æ— æ³•é€‰æ‹©æ•°æ®åº“!");
 
     return $conn;
 
@@ -35,7 +38,7 @@ function dbconn() {
 /**
  * @return int
  */
-//ÓÃÓÚ·µ»Ø×îºóÒ»¸öIDºÅ
+//ç”¨äºè¿”å›æœ€åä¸€ä¸ªIDå·
 function getnextuserid()
 {
 
@@ -63,7 +66,7 @@ function adduser($username,$password,$email,$studentid) {
 
     $userid = getnextuserid()+1;
 
-    $query = "INSERT INTO users(userid, username, userpassword, email, studentid) VALUE($userid, '$username', $password,'$email',$studentid)";
+    $query = "INSERT INTO users(userid, username, userpassword, email, studentid) VALUE($userid, '$username', '$password','$email',$studentid)";
 
     if($result = mysql_query($query)) {
         return true;
@@ -108,7 +111,7 @@ function dbclose() {
     $conn=mysql_connect($BASIC['mysql_host'], $BASIC['mysql_user'], $BASIC['mysql_pass']);
 
     if (!$conn) {
-        die('Á¬½ÓÊı¾İ¿âÊ§°Ü: ' . mysql_error());
+        die('è¿æ¥æ•°æ®åº“å¤±è´¥: ' . mysql_error());
     }
 
 }

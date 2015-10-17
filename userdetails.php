@@ -13,11 +13,11 @@ $userid=$_GET['userid'];
 dbconn();
 
 if(!$user=getuser($userid))
-    echo "²éÎŞ´ËÈË£¡";
+    echo "æŸ¥æ— æ­¤äººï¼";
 else{
     //$user=getuser('$userid');
-echo "ÓÃ»§ID£º".$user['userid']."<br />";
-echo "ÓÃ»§Ãû£º".$user['username']."<br />";
-echo "ÓÃ»§Ñ§ºÅ£º".$user["studentid"]."<br />";
-echo "ÓÃ»§ÓÊÏä£º".$user["email"]."<br />";
+echo "ç”¨æˆ·IDï¼š".$user['userid']."<br />";
+echo "ç”¨æˆ·åï¼š".$user['username']."<br />";
+echo "ç”¨æˆ·å­¦å·ï¼š".$user["studentid"]."<br />";
+echo "ç”¨æˆ·é‚®ç®±ï¼š".$user["email"]."<br />";
 }
