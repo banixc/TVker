@@ -8,11 +8,18 @@
 
 
 global $mysql_host,$mysql_user,$mysql_pass,$mysql_db;
-
+/*
 $mysql_host = "jp.pal6exe.cn";
 $mysql_user = "admin";
 $mysql_pass = "admin";
 $mysql_db = "tvker";
+*/
+
+$mysql_host = "localhost";
+$mysql_user = "root";
+$mysql_pass = "";
+$mysql_db = "tvker";
+
 
 /**
  * @return mysqli
@@ -35,51 +42,71 @@ function dbconn() {
 
 }
 
+
+function hashpassword($password) {
+
+    $query = "SELECT passwordsalt.key FROM passwordsalt";
+    $result = mysql_query($query);
+
+    if(!$result) {
+        return false;
+    }
+
+    else {
+
+        $row = mysql_fetch_row($result);
+        $key=$row[0];
+    }
+
+    return crypt($password,$key);
+
+}
+
+
 /**
  * @return int
  */
 //用于返回最后一个ID号
-function getnextuserid()
-{
 
-    $query = "SELECT * FROM users ORDER BY userid DESC";
-
-    $result = mysql_query($query);
-
-    //$rownum = mysql_num_rows($result);
-    //echo $rownum;
-
-
-  /*  for($i=0;$i<$rownum;$i++)
-    {
-        $row=mysql_fetch_assoc($result);
-        echo "ID:".$row['userid']."<br />";
-    }*/
-
-    $row = mysql_fetch_assoc($result);
-
-    return $row['userid'];
-
-}
 
 function adduser($username,$password,$email,$studentid) {
 
-    $userid = getnextuserid()+1;
 
-    $query = "INSERT INTO users(userid, username, userpassword, email, studentid) VALUE($userid, '$username', '$password','$email',$studentid)";
+    $query = "SELECT status.value FROM status WHERE status.key = 'usernumber'";
+    $result = mysql_query($query);
+    $row = mysql_fetch_array($result);
+
+    $userid = $row[0]+1;
+
+    $password = hashpassword($password);
+
+    $query = "INSERT INTO user(userid, username, userpassword, email, studentid) VALUE($userid, '$username', '$password','$email',$studentid)";
 
     if($result = mysql_query($query)) {
+
+        $query =  "UPDATE status SET status.value = status.value+1 WHERE status.key = 'usernumber'";
+
+        mysql_query($query);
         return true;
+
     }
     else
          die("Error in query: $query. ".mysql_error());
 
 }
 
+/**
+ * @return array|bool
+ */
+
+
+
+
+
 function getuser($userid) {
 
 
-    $query = "SELECT * FROM users WHERE userid = '$userid'";
+    $query = "SELECT * FROM user WHERE userid = '$userid'";
     $result = mysql_query($query);
 
 
@@ -104,6 +131,42 @@ function getuser($userid) {
 
     }
 }
+
+function login($username,$password)
+
+{
+    $query = "SELECT * FROM user WHERE user.username = '$username'";
+    $result = mysql_query($query);
+
+
+
+    if(!$result) {
+        return false;
+    }
+    else {
+
+        $row = mysql_fetch_row($result);
+
+        //echo $row[2];
+
+        if($row[2] == hashpassword($password))
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+
+
+    }
+
+
+
+
+
 
 
 /*
