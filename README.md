@@ -1,7 +1,7 @@
 ﻿#Tvker
 
 该项目用于托管B7小组软工大作业的代码。
-[Git的详细教程](http://Git.pal6exe.cn)
+[Git的详细教程](http://www.bootcss.com/p/git-guide/)
 
 ## 更新日志
 
