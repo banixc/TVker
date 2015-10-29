@@ -8,19 +8,19 @@
 
 
 global $mysql_host,$mysql_user,$mysql_pass,$mysql_db;
-/*
+
 $mysql_host = "jp.pal6exe.cn";
 $mysql_user = "admin";
 $mysql_pass = "admin";
 $mysql_db = "tvker";
-*/
 
+/*
 $mysql_host = "localhost";
 $mysql_user = "root";
 $mysql_pass = "";
 $mysql_db = "tvker";
 
-
+*/
 /**
  * @return mysqli
  */
