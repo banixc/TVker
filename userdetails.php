@@ -8,11 +8,11 @@
 
 include_once('functions.php');
 
-$userid=$_GET['userid'];
+$userid=$_GET['id'];
 
 dbconn();
-
-if(!$user=getuser($userid))
+$user=getuser($userid);
+if(!$user)
     echo "查无此人！";
 else{
     //$user=getuser('$userid');
