@@ -1,25 +1,39 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Pal
- * Date: 2015/10/24
- * Time: 9:42
- */
 
-include_once('functions.php');
+include_once 'linkstart.php';
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+show_head_no_login();
+get_bar();
+?>
+<div class="container">
 
+<?php
 
-dbconn();
+global $username;
+global $password;
 
+if (@$_POST['username'] and @$_POST['password']) {
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 
-if(login($username,$password))
-{
-    echo "µÇÂ¼³É¹¦!" .$username. " »¶Ó­»ØÀ´£¡";
+	if (!empty($username) and !empty($password)) {
+
+		$user = get_user_by_name($username);
+		if (!$user) {
+			echo 'ç™»å½•å¤±è´¥ ç”¨æˆ·ä¸å­˜åœ¨ï¼';
+		} else if ($user['password'] == hash_password($password)) {
+			echo 'ç™»å½•æˆåŠŸ æ¬¢è¿Žå›žæ¥ï¼š' . $user['username'];
+
+			$_SESSION['userid'] = $user['userid'];
+		} else {
+			echo 'ç™»å½•å¤±è´¥ å¯†ç é”™è¯¯!';
+		}
+
+	}
+
+} else {
+	no_access();
 }
-else
-{
-    echo "µÇÂ¼Ê§°Ü£¬Çë¼ì²éÄúµÄÓÃ»§Ãû/ÃÜÂë¡£";
-}
+?>
+
+    </div>
