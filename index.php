@@ -1,5 +1,5 @@
 <?php
-include_once('linkstart.php');
+include_once 'linkstart.php';
 //if(is_login()) {header("location: messagelist.php");exit;}?>
 <!DOCTYPE html>
 <!-- saved from url=(0037)http://v3.bootcss.com/examples/cover/ -->
@@ -12,7 +12,7 @@ include_once('linkstart.php');
     <meta name="author" content="">
     <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
 
-    <title>Cover Template for Bootstrap</title>
+    <title>Tvker 轻量化的校园社交网站</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
