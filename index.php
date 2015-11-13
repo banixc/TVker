@@ -10,6 +10,8 @@ include_once 'linkstart.php';
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="css/login.css" rel="stylesheet" type="text/css" media="all"/>
+
     <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
 
     <title>Tvker 轻量化的校园社交网站</title>
@@ -35,14 +37,6 @@ include_once 'linkstart.php';
 
         <div class="cover-container">
 
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <nav>
-                        <ul class="nav masthead-nav">
-                        </ul>
-                    </nav>
-                </div>
-            </div>
 
             <div class="inner cover">
                 <h1 class="cover-heading">Tvker</h1>
@@ -56,10 +50,8 @@ include_once 'linkstart.php';
                 </p>
             </div>
 
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>Cover template for <a href="http://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-                </div>
+            <div class="copyright">
+                <p>Copyright &copy; 2015.<a href="index.php">Tvker</a> All rights reserved.</p>
             </div>
 
         </div>
