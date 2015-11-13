@@ -17,6 +17,11 @@ if (@$_POST['username'] and @$_POST['password'] and @$_POST['confpassword'] and 
 
 	if (get_user_by_name($username)) {
 		header("location: register.php?action=err&mes=注册失败！用户名已存在！");exit;
+	}
+	else if (  is_numeric($studentid))
+	{
+		header("location: register.php?action=err&mes=注册失败！学号不正确！");exit;
+
 	} else if (!add_user($username, $password, $email, $studentid)) {
 		header("location: register.php?action=err&mes=注册失败！请检查其他信息！");exit;
 
