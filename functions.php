@@ -9,8 +9,8 @@
 global $mysql_host, $mysql_user, $mysql_pass, $mysql_db;
 
 $mysql_host = "localhost";
-$mysql_user = "root";
-$mysql_pass = "";
+$mysql_user = "tvker";
+$mysql_pass = "tvker";
 $mysql_db = "tvker";
 
 function get_row_count($table, $suffix = "")
