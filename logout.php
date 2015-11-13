@@ -1,13 +1,11 @@
-<?php session_start();
-include_once('functions.php');
-if(!is_login())
-{
-  echo '毫无权限 请登录';
-}
-else
-{
-header("Content-Type: text/html; charset=UTF-8");
-logout();
-echo '恭喜您 登出成功';
+<?php include_once('linkstart.php');
+if (!is_login()) {
+    header("location: login.php?action=err&mes=必须先登录！");
+    exit;
+} else {
+    header("Content-Type: text/html; charset=UTF-8");
+    logout();
+    header("location: login.php?action=succ&mes=登出成功！");
+    exit;
 }
 ?>
