@@ -24,7 +24,7 @@ switch ($_GET['active'])
         }
         else if(!$err)
         {
-            header("location: messagelist.php?action=succ&mes=点赞成功！");exit;
+            header("location: messagedetails.php?action=succ&mes=点赞成功！&messageid=".$_GET['messageid']);exit;
         }
         else
         {
