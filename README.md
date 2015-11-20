@@ -5,18 +5,19 @@
 ## 配置说明 
 
 所需环境：
-LAMP(Linux + Apache + MySQL + PHP) Demo使用的是 [http://lamp.sh/]() 2015年9月28日提供的一键安装脚本
+LAMP(Linux + Apache + MySQL + PHP) Demo使用的是 [http://lamp.sh/](http://lamp.sh/) 2015年9月28日提供的一键安装脚本
 
 配置说明: 
-1. 下载源码到虚拟主机的web目录
+1. 下载/解压源码到虚拟主机的web目录
 2. 导入数据库 (_db/db_tvker.sql) (Demo测试时由navicat进行导入)
 3. 修改配置文件: 找到 functions.php 修改第11行-第15行内容
+
     $mysql_host = "localhost";  //(修改为数据库服务器地址)
     $mysql_user = "root";       //(修改为数据库用户名)
     $mysql_pass = "root";       //(修改为数据库密码)
     $mysql_db = "tvker";        //(修改为数据库名称)
-4. 访问虚拟主机域名即可(以防万一加上"/index.php")
 
+4. 访问虚拟主机域名即可(以防万一加上"/index.php")
 
 [Git的详细教程](http://www.bootcss.com/p/git-guide/)
 
