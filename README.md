@@ -1,6 +1,6 @@
 ﻿#Tvker
 
-该项目用于托管B7小组软工大作业的代码。 [GitHub](https://www.github.com/banixc/tvker) [Coding](https://coding.net/u/banixc/p/Tvker/git) [Demo](http://tvker.pal6exe.cn)
+该项目用于托管B7小组软工大作业的代码。 [GitHub](https://www.github.com/banixc/tvker) [Coding](https://coding.net/u/banixc/p/Tvker/git) [Demo](http://tvker.banixc.com)
 
 ## 配置说明
 
